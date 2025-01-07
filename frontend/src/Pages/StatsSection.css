@@ -1,0 +1,169 @@
+/* Main container */
+.stats-full-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: auto; /* Changed from 100% to auto for better responsiveness */
+  padding: 40px 20px;
+  justify-content: center;
+  background-image: url("../images/sunrise.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin-top: 1rem;
+}
+
+/* Main stats container with blur and shadow effects */
+.stats-container {
+  border-radius: 2rem; /* Reduced border radius for a balanced look */
+  backdrop-filter: blur(1px);
+  box-shadow: 0px 18px 36px -18px rgba(12, 5, 46, 0.3),
+    0px 30px 60px -12px rgba(12, 5, 46, 0.25);
+  width: 90%; /* Adjusted for better scaling */
+  max-width: 1200px; /* Limit max width for larger screens */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(0, 0, 0);
+  padding: 40px 20px;
+  margin-top: 2rem;
+  background: rgba(255, 255, 255, 0.6); /* Subtle background for readability */
+}
+
+/* Text content */
+.stats-content {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.stats-content h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #0970ac;
+}
+
+.stats-content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+  color: rgb(138, 124, 0);
+}
+
+/* Grid layout */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(250px, 1fr)
+  ); /* Flexible columns */
+  gap: 20px;
+  max-width: 1000px; /* Center grid and prevent excessive stretching */
+  width: 100%;
+}
+
+/* Individual stat cards */
+.stats-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover effect for cards */
+/* .stats-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+} */
+
+.stats-card h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.stats-card p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+/* Card background and blur effects */
+.blue {
+  backdrop-filter: blur(10px);
+  background: rgba(0, 174, 255, 0.15);
+  box-shadow: 0px 18px 36px -18px rgba(12, 5, 46, 0.3);
+}
+
+.green {
+  backdrop-filter: blur(10px);
+  background: rgba(60, 180, 75, 0.15);
+  box-shadow: 0px 18px 36px -18px rgba(12, 5, 46, 0.3);
+}
+
+.yellow {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 210, 0, 0.15);
+  box-shadow: 0px 18px 36px -18px rgba(12, 5, 46, 0.3);
+}
+
+.pink {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 105, 180, 0.15);
+  box-shadow: 0px 18px 36px -18px rgba(12, 5, 46, 0.3);
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 768px) {
+  .stats-content h1 {
+    font-size: 2rem; /* Adjust heading size for tablets */
+  }
+
+  .stats-content p {
+    font-size: 1rem; /* Smaller paragraph font size for better scaling */
+  }
+
+  .stats-container {
+    padding: 30px 15px; /* Adjust padding for smaller screens */
+  }
+
+  .stats-card {
+    padding: 15px;
+  }
+
+  .stats-card h2 {
+    font-size: 1.5rem; /* Smaller font for stat numbers */
+  }
+
+  .stats-card p {
+    font-size: 1rem; /* Adjust description size */
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .stats-content h1 {
+    font-size: 1.8rem; /* Further reduce heading size for phones */
+  }
+
+  .stats-content p {
+    font-size: 0.9rem;
+  }
+
+  .stats-card {
+    padding: 10px;
+  }
+
+  .stats-card h2 {
+    font-size: 1.3rem;
+  }
+
+  .stats-card p {
+    font-size: 0.9rem;
+  }
+}

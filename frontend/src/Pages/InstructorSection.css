@@ -1,0 +1,106 @@
+.instructor-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  height: 100vh; /* Full height of the viewport */
+  background-image: url("../images/audience1.jpg"); /* Replace with the actual image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  margin-top: 1rem;
+  overflow: hidden; /* Ensures no child element overflows the container */
+}
+
+.instructor-section .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90%;
+  margin-top: 1rem;
+  background: rgba(246, 253, 255, 0.342); /* Translucent background */
+  backdrop-filter: blur(14px); /* Subtle blur effect */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0; /* Initially hidden */
+  transform: scale(0.95); /* Slightly scaled down */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+}
+
+.instructor-section:hover .overlay {
+  opacity: 1; /* Fully visible on hover */
+  transform: scale(1); /* Restore scale */
+}
+
+.instructor-section .content {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.instructor-section:hover .content {
+  transform: translateY(-10px); /* Moves up slightly on hover */
+  opacity: 1; /* Ensures full visibility */
+}
+
+.instructor-section h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: rgb(255, 255, 255);
+  transition: color 0.3s ease; /* Smooth color change */
+}
+
+.instructor-section h1:hover {
+  color: rgb(4, 78, 100);
+}
+
+.instructor-section p {
+  margin: 10px 0;
+  font-size: 1rem;
+  color: white;
+}
+
+.instructor-cta-button {
+  background-color: #2d4e74;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth button hover effects */
+}
+
+.instructor-cta-button:hover {
+  background-color: #a2d0db;
+  color: black;
+  transform: scale(1.1); /* Slightly enlarges on hover */
+}
+
+.proposal-text {
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .instructor-section h1 {
+    font-size: 3rem;
+  }
+
+  .instructor-section p {
+    font-size: 1.2rem;
+  }
+
+  .instructor-cta-button {
+    font-size: 1.2rem;
+    padding: 12px 24px;
+  }
+}

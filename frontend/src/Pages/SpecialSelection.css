@@ -1,0 +1,181 @@
+.special-whole-container {
+  width: 100%;
+  height: auto; /* Changed from 100vh for better responsiveness on smaller screens */
+  padding: 2rem 0;
+  background-color: rgb(202, 234, 235);
+  margin-top: 1.5rem;
+}
+
+.special-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-family: Arial, sans-serif;
+  width: 100%;
+  max-width: 1200px; /* Restrict the section's maximum width for better aesthetics */
+  margin: 0 auto;
+}
+
+.special-section .highlight {
+  color: #007bff; /* Blue highlight color */
+}
+
+.special-section .intro {
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  color: #555;
+  padding: 30px 20px;
+  font-size: 1.3rem;
+  line-height: 1.6;
+}
+
+.special-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem; /* Adjusted spacing for better responsiveness */
+  justify-content: center;
+  cursor: pointer;
+}
+
+.card {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem;
+  max-width: 320px;
+  width: 100%; /* Ensure cards are responsive */
+  height: 300px;
+  display: flex;
+  align-items: flex-end;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  justify-content: flex-end;
+}
+
+.card-content {
+  backdrop-filter: blur(1px); /* Increased blur for better effect */
+  background: rgba(
+    255,
+    255,
+    255,
+    0.7
+  ); /* Slightly more opaque for readability */
+  border-radius: 8px;
+  padding: 1rem;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 
+  .cards :hover{
+    transform: translateY(-10px);
+  } */
+
+.card h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.card p {
+  color: #555;
+  margin-top: 0.5rem;
+  font-size: 1.1em;
+  margin-top: 10px;
+  text-align: center;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease-in;
+}
+
+.cards :hover {
+  transform: translateY(-10px);
+  transition: 0.5s ease-in-out;
+}
+
+.cards :hover p {
+  opacity: 1000;
+}
+
+/* Background Image Classes */
+.bg-image1 {
+  background-image: url("../images/Man\ Spraying\ Protective\ Chemicals\ 3D\ Cartoon\ Character\ Illustration\ 700.png");
+}
+
+.bg-image2 {
+  background-image: url("../images/astroblue.jpg");
+}
+
+.bg-image3 {
+  background-image: url("../images/astronaut-rocket.jpg");
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .special-section h2 {
+    font-size: 2rem; /* Smaller heading size on tablets */
+  }
+
+  .special-section .intro {
+    font-size: 1rem; /* Adjusted font size for smaller devices */
+    padding: 20px 15px;
+  }
+
+  .cards {
+    flex-direction: column; /* Stack cards vertically on smaller screens */
+    align-items: center;
+  }
+
+  .card {
+    height: 400px; /* Reduce card height for smaller devices */
+    max-width: 90%; /* Use most of the available space */
+  }
+
+  .card-content {
+    padding: 0.8rem;
+    width: 100%;
+    height: 150px;
+  }
+
+  .card h3 {
+    font-size: 1.1rem;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .special-section h2 {
+    font-size: 1.8rem; /* Even smaller heading size for phones */
+  }
+
+  .special-section .intro {
+    font-size: 0.9rem; /* Reduce font size for compact screens */
+  }
+
+  .card {
+    height: 220px; /* Shrink card height on small screens */
+  }
+
+  .card-content {
+    padding: 0.6rem;
+  }
+
+  .card h3 {
+    font-size: 1rem;
+  }
+
+  .card p {
+    font-size: 0.85rem;
+  }
+}

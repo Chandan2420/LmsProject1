@@ -1,0 +1,114 @@
+/* General styles */
+
+.lesson-list-wholediv {
+  /* background-color: red; */
+  width: 100%;
+  height: 100vh;
+}
+.lesson-list-container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+  background-color: yellow;
+  height: 100%;
+}
+
+.add-new-button,
+.edit-button,
+.delete-button,
+.save-button,
+.cancel-button {
+  padding: 8px 12px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.main-div {
+  display: flex;
+  flex-direction: row;
+}
+
+.table-head {
+  display: grid;
+  /* flex-direction: row; */
+  /* justify-content: center; */
+
+  width: 100%;
+}
+
+.table-head td {
+  display: flex;
+  flex-direction: row;
+}
+
+.table-head tr {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+}
+
+.lesson-table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.add-new-button {
+  background-color: #5b67f2;
+  color: white;
+}
+
+.edit-button {
+  background-color: #5b67f2;
+  color: white;
+}
+
+.delete-button {
+  background-color: #f25b5b;
+  color: white;
+}
+
+.save-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.cancel-button {
+  background-color: #6c757d;
+  color: white;
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  /* background-color: white; */
+  backdrop-filter: blur(5px);
+  margin-top: 5rem;
+  background: rgba(255, 246, 246, 0.582);
+
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+}
+
+.modal-content h3 {
+  margin-bottom: 20px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+}

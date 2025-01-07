@@ -1,0 +1,110 @@
+/* Team Section Container */
+.team-section {
+  width: 100%;
+  padding: 3rem 1rem;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.team-section h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.team-section .highlight {
+  color: #007bff;
+}
+
+/* Team Grid */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(180px, 1fr)
+  ); /* Responsive grid */
+  gap: 2rem;
+  justify-items: center;
+}
+
+/* Team Member */
+.team-member {
+  text-align: center;
+}
+
+.member-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.team-member h3 {
+  font-size: 1.2rem;
+  margin: 0.5rem 0 0.3rem;
+  color: #333;
+}
+
+.team-member p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Background Images */
+.bg-alex {
+  background-image: url("../images/ourteam1.jpg");
+}
+
+.bg-aaliyah {
+  background-image: url("../images/ourteam10.jpg");
+}
+
+.bg-vicky {
+  background-image: url("../images/ourteam7.jpg");
+}
+
+.bg-anaya {
+  background-image: url("../images/ourteam8.jpg");
+}
+
+.bg-john {
+  background-image: url("../images/ourteam9.jpg");
+}
+
+.bg-jane {
+  background-image: url("../images/ourteam6.jpg");
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .team-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .team-member h3 {
+    font-size: 1rem;
+  }
+
+  .team-member p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .member-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .team-member h3 {
+    font-size: 0.95rem;
+  }
+
+  .team-member p {
+    font-size: 0.8rem;
+  }
+}

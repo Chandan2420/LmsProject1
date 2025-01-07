@@ -1,0 +1,478 @@
+.wholedivision{
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/street1.jpg");
+    /* background-image: url("../images/blue-green-background-with-gradient-text-space_873925-13665.jpg"); */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/* General Navbar Styling */
+.navbar {
+    height: 8rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* border-radius: 15px; */
+    /* box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); */
+    width: 100%;
+    /* max-width: 1200px; */
+    
+    position: relative;
+    z-index: 10;
+    /* background-color: #fffad0; */
+
+    /* background-image: url("../images/homehome.jpeg"); */
+  }
+  
+  /* Navbar Container */
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    height: 5rem;
+    align-content: center;
+    padding: 0px 30px;
+    border-radius: 3rem;
+    /* background-color: #4a9ab9; */
+    background-color: #199fc0;
+
+  }
+  
+  /* Logo */
+  .navbar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+    flex-shrink: 0; /* Prevent logo from shrinking */
+    cursor: pointer;
+  }
+  
+  /* Hamburger Menu */
+  .hamburger-menu {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+  }
+  
+  .hamburger-line {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+  
+  /* Links and Actions */
+  .navbar-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 50px;
+  }
+  
+  .navbar-links {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    height: 3rem;
+    
+    width: 100%;
+  }
+  
+  .navbar-links li {
+    position: relative;
+    height: 2rem;
+    width: 8rem;
+    align-content: center;
+  }
+  
+  .navbar-links a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 1.4rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .navbar-links a:hover {
+    color: white;
+    /* background-color: #00e7c9; */
+  background-color: #92c2f5;
+
+  }
+  
+  .navbar-actions {
+    display: flex;
+    gap: 40px;
+  }
+  
+  .contact-button {
+    /* background-color: black; */
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #164f66;
+    font-size: 1rem;
+
+  }
+  
+  .contact-button:hover {
+    /* background-color: #00e7c9; */
+    color: black;
+  background-color: #92c2f5;
+
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .hamburger-menu {
+      display: flex;
+    }
+  
+    .navbar-content {
+      display: none; /* Hide content by default */
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      background-color: white;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      border-radius: 0 0 15px 15px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      z-index: 20;
+      padding: 20px 0;
+    }
+  
+    .navbar-content.active {
+      display: flex; /* Show content when menu is active */
+    }
+  
+    .navbar-links {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .navbar-actions {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .navbar-logo {
+      font-size: 1.2rem; /* Smaller logo for very small screens */
+    }
+  
+    .contact-button {
+      padding: 8px 15px; /* Smaller buttons */
+      font-size: 0.9rem;
+    }
+  
+    .navbar-links a {
+      font-size: 0.9rem; /* Smaller font size for links */
+    }
+  }
+  /* ------------------------------------------------------------------------ */
+
+
+
+
+
+  .nav-links {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    /* gap: 2rem; */
+    /* justify-content: space-around; */
+    justify-content: center;
+    font-size: 1.4rem;
+    margin-top: .5rem;
+    padding: 0px 15px;
+}
+
+.nav-links a {
+/* align-content: center; */
+    /* color: rgb(47, 67, 156); */
+    background-color: #4a9ab9;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #000000;
+}
+.search-input{
+  width: 30%;
+}
+.searchlog-button{
+    /* padding: .3rem; */
+    font-size: 1rem;
+        /* padding-left: 1.5rem; */
+        /* padding-right: 1.5rem; */
+        border-radius: 1rem;
+        border: none;
+        /* background-color: green; */
+    background-color: #4a9ab9;
+
+        border: none;
+
+        color: white;
+}
+.searchsign-button{
+    /* padding: .3rem; */
+    font-size: 1.1rem;
+    height: 3rem;
+        /* padding-left: 1.5rem; */
+        /* padding-right: 1.5rem; */
+        border-radius: 1rem;
+        border: none;
+        /* background-color: green; */
+    /* background-color: #4a9ab9; */
+    background-color: #164f66;
+
+
+        color: white;
+}
+
+
+.searchsign-button:hover{
+  background-color: #92c2f5;
+  color: black;
+
+}
+
+
+
+/* For extra-small devices (phones, less than 576px) */
+@media only screen and (max-width: 575.98px) {
+    .nav-links {
+      flex-direction: column; /* Stack links vertically */
+      gap: 1rem; /* Reduce spacing */
+      font-size: 1rem; /* Smaller font size */
+      margin-top: 1rem; /* Adjust spacing */
+    }
+  
+    .nav-links a {
+      font-size: 0.9em; /* Adjust link size */
+    }
+  
+    .log-button, .sign-button {
+      font-size: 0.9rem; /* Reduce button font size */
+      padding: 0.2rem 1rem; /* Adjust padding */
+      border-radius: 0.8rem; /* Smaller border radius */
+    }
+  }
+  
+  /* For small devices (landscape phones, less than 768px) */
+  @media only screen and (max-width: 767.98px) {
+    .nav-links {
+      flex-direction: row; /* Keep links horizontal */
+      gap: 2rem; /* Reduce spacing */
+      font-size: 1.2rem; /* Slightly smaller font size */
+      margin-top: 1.5rem;
+    }
+  
+    .log-button, .sign-button {
+      font-size: 0.95rem; /* Slightly smaller button text */
+      padding: 0.3rem 1.2rem;
+      border-radius: 0.9rem;
+    }
+  }
+  
+  /* For medium devices (tablets, less than 992px) */
+  @media only screen and (max-width: 991.98px) {
+    .nav-links {
+      gap: 3rem; /* Moderate spacing */
+      font-size: 1.3rem;
+    }
+  
+    .log-button, .sign-button {
+      font-size: 1rem;
+      padding: 0.4rem 1.4rem;
+      border-radius: 1rem;
+    }
+  }
+  
+  /* For large devices (small desktops, less than 1200px) */
+  @media only screen and (max-width: 1199.98px) {
+    .nav-links {
+      gap: 3.5rem;
+      font-size: 1.4rem;
+    }
+  
+    .log-button, .sign-button {
+      font-size: 1.1rem;
+      padding: 0.5rem 1.5rem;
+    }
+  }
+  
+  /* For extra-large devices (desktops, 1200px and above) */
+  @media only screen and (min-width: 1200px) {
+    .nav-links {
+      gap: 4rem;
+      font-size: 1.4rem;
+    }
+  
+    .log-button, .sign-button {
+      font-size: 1.2rem;
+      padding: 0.6rem 1.8rem;
+    }
+  }
+  
+
+
+
+
+
+
+/* ---------------------------------------------------------- */
+
+
+
+
+
+
+  
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+/* background-image: url("../images/trainhome.jpg");
+background-size: contain; */
+   /* background-image: url("../images/mountain1.jpg"); */
+    /* background: url("C:\Users\hp\Desktop\noise\my-app\src\images\cubes-677092_1280.png") no-repeat center/cover; */
+    /* background-image: url("../images/homeimage.jpg"); */
+    /* background-image: url("../images/street1.jpg"); */
+    /* background-image: url("../images/homehome.jpeg"); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* border-radius: 10rem; */
+    /* background-color: rgb(204, 255, 161); */
+    position: relative;
+    color: #fff;
+    text-align: center;
+    margin-top: 1rem;
+    width: 100%;
+    height: 100vh;
+    
+}
+
+.overlay {
+    color: black;
+    position: relative;
+    background: rgba(255, 246, 246, 0.582); 
+    backdrop-filter: blur(3px);
+    padding: 50px;
+    /* left: 2rem; */
+    border-radius: 12px;
+    max-width: 60%;
+    /* text-align: center; */
+    box-shadow: 0 4px 30px rgba(238, 228, 228, 0.795);
+    /* background-image: url("../images/snake-removebg-preview.png");    */
+    background-repeat: no-repeat;
+    border: white  1px;
+    left: 1rem; 
+    /* background-image: url('../images/happyb.png'); */
+}
+
+.overlay h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.overlay p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    /* background-color: #007BFF; */
+    /* background-color: green; */
+    /* background-color: #199fc0; */
+    background-color: #164f66;
+
+
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    /* background-color: #7ac0db; */
+  background-color: #92c2f5;
+color: black;
+}
+
+
+
+
+
+
+.overlay p{
+    color: #006658;
+}
+
+.image-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-image: url("C:\Users\hp\Desktop\noise\my-app\src\images\welcomeimgremovebg.png"); */
+   
+}
+
+/* .image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+} */
+
+@media (max-width: 768px) {
+    .content-container {
+        flex-direction: column;
+    }
+    
+    .text-content h1 {
+        font-size: 2em;
+    }
+    
+    .text-content p {
+        font-size: 1em;
+    }
+    
+    .cta-button {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 768px) {
+    .overlay h1 {
+        font-size: 2em;
+    }
+    .overlay p {
+        font-size: 1em;
+    }
+    .cta-button {
+        font-size: 0.9em;
+    }
+}

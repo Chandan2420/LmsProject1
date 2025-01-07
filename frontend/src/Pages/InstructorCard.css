@@ -1,0 +1,167 @@
+/* Instructor Card Container */
+.instructor-whole-container {
+  width: 100%;
+  padding: 40px 0px;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  /* background-image: url("../images/pencil.jpg"); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Instructor Card */
+.instructor-card {
+  display: flex;
+  width: 80%;
+  height: 80vh;
+  background: rgba(114, 167, 228, 0.582);
+  border-radius: 3rem;
+  backdrop-filter: blur(1.5px);
+}
+
+/* Image Section */
+.image-section {
+  width: 50%;
+  height: 100%;
+  background-image: url("../images/ins-removebg-preview.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Text Section */
+.text-section {
+  backdrop-filter: blur(3px);
+  width: 45%;
+  height: 70%;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 30px;
+  text-align: left;
+  background-color: #797b7c63;
+  align-items: center;
+}
+
+/* Heading and Text */
+.text-section h1 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.text-section .highlight {
+  color: #2d4e74;
+}
+
+.text-section p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #666;
+}
+
+/* Button */
+.instructor-button {
+  background-color: #2d4e74;
+  color: #fff;
+  font-size: 18px;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.instructor-button:hover {
+  background-color: #a2d0db;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .instructor-card {
+    width: 90%;
+    height: 70vh;
+  }
+
+  .image-section {
+    width: 45%;
+  }
+
+  .text-section {
+    width: 55%;
+    padding: 20px;
+  }
+
+  .text-section h1 {
+    font-size: 30px;
+  }
+
+  .text-section p {
+    font-size: 16px;
+  }
+
+  .instructor-button {
+    font-size: 16px;
+    padding: 10px 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .instructor-card {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .image-section {
+    width: 100%;
+    height: 200px; /* Adjust height for mobile */
+  }
+
+  .text-section {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .text-section h1 {
+    font-size: 28px;
+  }
+
+  .text-section p {
+    font-size: 14px;
+  }
+
+  .instructor-button {
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .instructor-card {
+    height: auto;
+    padding: 20px;
+  }
+
+  .image-section {
+    height: 150px; /* Adjust height for smaller screens */
+  }
+
+  .text-section h1 {
+    font-size: 24px;
+  }
+
+  .text-section p {
+    font-size: 12px;
+  }
+
+  .instructor-button {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+}

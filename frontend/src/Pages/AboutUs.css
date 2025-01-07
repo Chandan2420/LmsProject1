@@ -1,0 +1,165 @@
+/* General Styling */
+/* body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+  } */
+  
+  .about-page {
+    padding: 0;
+    margin: 0;
+    /* background-color: #f9f9f9; */
+    /* background-color: rgb(156, 156, 156); */
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    background-image: url("../images/astrosky.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    background: linear-gradient(
+      
+      ),
+      url('https://via.placeholder.com/1200x500') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+  }
+  
+  .hero-content h1 {
+    font-size: 3rem;
+    margin: 0;
+  }
+  
+  .hero-content p {
+    font-size: 1.2rem;
+    margin: 10px 0 0;
+  }
+  
+  /* Mission Section */
+  .mission-section {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: white;
+  }
+  
+  .mission-section h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .mission-section p {
+    font-size: 1.1rem;
+    color: #666;
+  }
+
+  .about-card{
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding-right: 3rem;
+    padding-left: 3rem;
+  }
+
+
+  .about-card h2 {
+    /* font-size: 1.5rem; */
+    color: #8ee24a;
+    margin-bottom: 10px;
+  }
+  
+  .about-card  p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .about-card-container{
+    padding-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax( 500px, 1fr));
+    gap: 20px;
+  }
+  
+  /* Team Section */
+  .team-section {
+    padding: 50px 20px;
+    /* background-color: #f4f4f9; */
+  }
+  
+  .team-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .team-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .team-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .team-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .team-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+  }
+  
+  .team-section h2{
+    font-size: 2.5rem;
+    color: white;
+
+  }
+  /* Values Section */
+  .values-section {
+    padding: 50px 20px;
+    background-color: white;
+    text-align: center;
+  }
+  
+  .values-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .values-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  
+  .values-list li {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1.1rem;
+  }
+  

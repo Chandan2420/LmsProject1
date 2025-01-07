@@ -1,0 +1,183 @@
+/* General Navbar Styling */
+.navbar {
+    height: 8rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: sticky; /* Makes the navbar sticky */
+    top: 0; /* Stick to the top */
+    z-index: 10;
+    /* background-color: rgba(150, 194, 219, 0.432);  */
+}
+
+/* Navbar Container */
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    height: 5rem;
+    padding: 0px 30px;
+    border-radius: 3rem;
+    background-color: #199fc0;
+}
+
+/* Logo */
+.navbar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    /* color: black; */
+    color: white;
+    flex-shrink: 0; /* Prevent logo from shrinking */
+    cursor: pointer;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+}
+
+.hamburger-line {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
+/* Links and Actions */
+.navbar-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 80px;
+    
+}
+
+.navbar-links {
+ 
+
+
+
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  flex-wrap: nowrap; /* Prevent wrapping into a new row */
+  height: 3rem;
+  width: auto; /* Ensure it doesn't take up unnecessary space */
+  text-align: center;
+}
+
+.navbar-links li {
+    position: relative;
+    height: auto;
+    width: auto;
+    align-content: center;
+
+}
+
+.navbar-links li :hover{
+    border-bottom: 3px solid  #164f66;
+
+}
+
+.navbar-links a {
+  text-decoration: none;
+    /* color: black; */
+    color: white;
+    font-weight: 500;
+    font-size: 1.6rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    white-space: nowrap; /* Prevent the text from wrapping to a new line */
+}
+
+.navbar-links a:hover {
+    /* color: white; */
+    color: rgb(56, 56, 56);
+    background-color: #92c2f5;
+}
+
+.navbar-actions {
+    display: flex;
+    gap: 20px;
+}
+
+.contact-button {
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #164f66;
+    font-size: 1rem;
+}
+
+.contact-button:hover {
+    color: black;
+    background-color: #92c2f5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: flex; /* Show hamburger menu */
+    }
+
+    .navbar-content {
+        display: none; /* Hide content by default */
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        background-color: white;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 20;
+        border-radius: 0 0 15px 15px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px 0;
+    }
+
+    .navbar-content.active {
+        display: flex; /* Show content when active */
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        align-items: center; /* Center align links */
+        gap: 15px;
+    }
+
+    .navbar-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-logo {
+        font-size: 1.2rem; /* Smaller logo for very small screens */
+    }
+
+    .contact-button {
+        padding: 8px 15px; /* Smaller buttons */
+        font-size: 0.9rem;
+    }
+
+    .navbar-links a {
+        font-size: 1rem; /* Adjust font size for small screens */
+    }
+}
