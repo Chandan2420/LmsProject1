@@ -7,6 +7,8 @@ import HomeBanner from "./Pages/HomeBanner";
 import Searchbar from "./Components/Searchbar";
 import SignUpPage from "./Pages/SignUpPage";
 import LoginPage from "./Pages/LoginPage";
+import ForgotPassword from "./Pages/ForgotPassword";
+import ResetPassword from "./Pages/ResetPassword";
 import AboutUsPage from "./Pages/AboutUs";
 import Caurosel from "./Pages/Caurosel";
 import Courses from "./Pages/Courses";
@@ -35,7 +37,7 @@ import CardSection from "./Pages/CardSection";
 import FlipCardComponent from "./Pages/FlipCardComponent";
 function App() {
   return (
-    <Router>
+    <Router> 
       <div className="App">
         <Navbar />
         {/* <Aio/> */}
@@ -66,6 +68,8 @@ function App() {
           <Route path="/lessons" element={<LessonList />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/ForgotPassword" element={<ForgotPassword />} />
+          <Route path="/ResetPassword" element={<ResetPassword />} />
           <Route path="/add-course" element={<CourseForm />} />
           <Route path="/hello" element={<Sidebar />} />
 

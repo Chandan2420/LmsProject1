@@ -1,129 +1,65 @@
-// import React, { useState } from "react";
-// import { useNavigate } from "react-router-dom";
-// import "../Pages/LoginPage.css";
-
-// const LoginPage = () => {
-//   const [email, setEmail] = useState('');
-//   const [password, setPassword] = useState('');
-//   const [error, setError] = useState('');
-//   const navigate = useNavigate();
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-
-//     if (!email || !password) {
-//       setError('Both fields are required.');
-//       return;
-//     }
-
-//     if (email === 'user@example.com' && password === 'password123') {
-//       setError('');  // Clear any previous error
-//       alert('Login successful!');
-//       navigate('/home');
-//     } else {
-//       setError('Invalid email or password.');
-//     }
-//   };
-
-//   return (
-
-//     <div className='login-wholecontainer'>
-//        <div className="login-two-container">
-//       <div className="login-container">
-//         <h2>Login</h2>
-//         <form onSubmit={handleSubmit}>
-//           <label htmlFor="email">Email</label>
-//           <input
-//             type="email"
-//             id="email"
-//             value={email}
-//             onChange={(e) => setEmail(e.target.value)}
-//           />
-
-//           <div>
-//             <label htmlFor="password">Password</label>
-//             <input
-//               type="password"
-//               id="password"
-//               value={password}
-//               onChange={(e) => setPassword(e.target.value)}
-//             />
-//           </div>
-
-//           {error && <p className="error">{error}</p>}
-//           <div className='form-group'>
-//             <button type="submit">Login</button>
-//           </div>
-//         </form>
-//       </div>
-//       <div className='login-image'></div>
-//     </div>
-//     </div>
-//   );
-// };
-
-// export default LoginPage;
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 import "../Pages/LoginPage.css";
 
 const LoginPage = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!email || !password) {
-      setError("Both fields are required.");
-      return;
+    try {
+        const response = await axios.post('http://localhost:5000/api/LoginPage', { email, password });
+        alert(response.data.message);
+        localStorage.setItem('token', response.data.token);
+        navigate("/#home");
+    } catch (error) {
+        alert(error.response.data.error);
     }
+};
 
-    if (email === "user@example.com" && password === "password123") {
-      setError("");
-      alert("Login successful!");
-      navigate("/home");
-    } else {
-      setError("Invalid email or password.");
-    }
-  };
+return (
+  <div className="login-wholecontainer">
+    <div className="login-two-container">
+      <div className="login-container">
+        <h2>Login</h2>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
 
-  return (
-    <div className="login-wholecontainer">
-      <div className="login-two-container">
-        <div className="login-container">
-          <h2>Login</h2>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="email">Email</label>
+          <div>
+            <label htmlFor="password">Password</label>
             <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
-
-            <div>
-              <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-
-            {error && <p className="error">{error}</p>}
-            <div className="form-group">
-              <button type="submit">Login</button>
-            </div>
-          </form>
-        </div>
-        <div className="login-image"></div>
+          </div>
+          <div className="form-field">
+          <p>
+        <a href="#ForgotPassword" onClick={() => navigate("/ForgotPassword")}>
+          Forgot Password?
+        </a>
+          </p>
+         </div>
+          <div className="form-group">
+            <button type="submit">Login</button>
+          </div>
+        </form>
       </div>
+      <div className="login-image"></div>
     </div>
-  );
+  </div>
+);
 };
 
 export default LoginPage;
