@@ -20,9 +20,9 @@ const ForgotPassword = ({ onOtpSent }) => {
     };
 
     return (
-        <div className="login-wholecontainer">
-          <div className="login-two-container">
-            <div className="login-container">
+        <div className="forgot-wholecontainer">
+          <div className="forgot-two-container">
+            <div className="forgot-container">
               <h2>Forgot Password</h2>
               <form onSubmit={handleSubmit}>
                 <label htmlFor="email">Email</label>
@@ -37,7 +37,7 @@ const ForgotPassword = ({ onOtpSent }) => {
                 </div>
               </form>
             </div>
-            <div className="login-image"></div>
+            <div className="forgot-image"></div>
           </div>
         </div>
       );

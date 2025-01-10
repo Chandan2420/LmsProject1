@@ -27,9 +27,9 @@ const ResetPassword = ({ email: initialEmail }) => {
     };
 
     return (
-        <div className="login-wholecontainer">
-          <div className="login-two-container">
-            <div className="login-container">
+        <div className="reset-wholecontainer">
+          <div className="reset-two-container">
+            <div className="reset-container">
               <h2>Reset Password</h2>
               <form onSubmit={handleSubmit}>
                 <label htmlFor="email">Email</label>
@@ -74,7 +74,7 @@ const ResetPassword = ({ email: initialEmail }) => {
                 </div>
               </form>
             </div>
-            <div className="login-image"></div>
+            <div className="reset-image"></div>
           </div>
         </div>
       );
