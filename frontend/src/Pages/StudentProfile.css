@@ -1,0 +1,63 @@
+/* ProfilePage.css */
+
+/* Container for the entire profile page */
+.profile-page {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+  }
+  
+  /* Title for the profile page */
+  .profile-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  /* Profile details container */
+  .profile-details {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style for each profile info item */
+  .profile-info {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #555;
+  }
+  
+  /* Strong elements inside profile info for labels */
+  .profile-info strong {
+    color: #333;
+  }
+  
+  /* Style for empty profile page (loading state) */
+  .profile-page p {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #888;
+  }
+  
+  /* Add a responsive design for smaller screens */
+  @media screen and (max-width: 600px) {
+    .profile-title {
+      font-size: 1.5rem;
+    }
+  
+    .profile-details {
+      padding: 15px;
+    }
+  
+    .profile-info {
+      font-size: 1rem;
+    }
+  }
+  

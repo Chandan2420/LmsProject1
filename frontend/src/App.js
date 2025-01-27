@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { BrowserRouter } from "react-router-dom";
+//import { BrowserRouter } from "react-router-dom";
 
 import Navbar from "./Components/Navbar";
 import HomeBanner from "./Pages/HomeBanner";
@@ -9,14 +9,15 @@ import SignUpPage from "./Pages/SignUpPage";
 import LoginPage from "./Pages/LoginPage";
 import ForgotPassword from "./Pages/ForgotPassword";
 import ResetPassword from "./Pages/ResetPassword";
-import AboutUsPage from "./Pages/AboutUs";
+//import AboutUsPage from "./Pages/AboutUs";
 import Caurosel from "./Pages/Caurosel";
 import Courses from "./Pages/Courses";
 import StatsSection from "./Pages/StatsSection";
 import Sidebar from "./Components/Sidebar";
 import Dashboard from "./Pages/Dashboard";
-import DoughnutChart from "./SidebarComponents/DoughnutChart";
+//import DoughnutChart from "./SidebarComponents/DoughnutChart";
 // import CourseAddForm from "./SidebarComponents/CourseAddForm";
+import StudentProfile from "./Pages/StudentProfile";
 
 import Why from "./Pages/Why";
 import LessonList from "./SidebarComponents/LessonList";
@@ -28,13 +29,14 @@ import HiringSection from "./Pages/HiringSection";
 import SettingsForm from "./SidebarComponents/SettingsForm";
 import CourseForm from "./SidebarComponents/CourseForm";
 import ContactForm from "./Pages/ContactForm";
-import Aio from "./Components/Aio";
+//import Aio from "./Components/Aio";
 import InstructorSection from "./Pages/InstructorSection";
 import FeaturesSection from "./Pages/FeaturesSection";
 import TeachCourse from "./Pages/TeachCourse";
 // import HeaderTabs from "./Pages/HeaderTabs";
 import CardSection from "./Pages/CardSection";
-import FlipCardComponent from "./Pages/FlipCardComponent";
+//import FlipCardComponent from "./Pages/FlipCardComponent";
+
 function App() {
   return (
     <Router> 
@@ -49,7 +51,6 @@ function App() {
             element={
               <>
                 <Searchbar />
-
                 <HomeBanner />
                 <Why />
                 <CardSection />
@@ -72,6 +73,7 @@ function App() {
           <Route path="/ResetPassword" element={<ResetPassword />} />
           <Route path="/add-course" element={<CourseForm />} />
           <Route path="/hello" element={<Sidebar />} />
+          <Route path="/profile" element={<StudentProfile />} />
 
           <Route
             path="/next"
