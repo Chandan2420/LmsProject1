@@ -8,6 +8,7 @@ const userSchema = new mongoose.Schema({
     role: { type: String, enum: ['student', 'instructor'], required: true },
     resetToken: { type: String },
     resetTokenExpiry: { type: Date },
+    avatar: { type: String },
 });
 
 module.exports = mongoose.model('User', userSchema);

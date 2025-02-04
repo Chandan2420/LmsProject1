@@ -1,63 +1,171 @@
 /* ProfilePage.css */
 
+/* Resetting general styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
 /* Container for the entire profile page */
-.profile-page {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    background-color: #f8f9fa;
-    min-height: 100vh;
+.profile-content {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  text-align: center;
+  min-height: 30;
+}
+
+/* Title for the profile page */
+.profile-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Profile details container */
+.profile-details {
+  max-width: 300px;
+  margin: 20px auto 0 auto;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for each profile info item */
+.profile-info {
+  font-size: 1.2rem;
+  margin-bottom: 0px;
+  color: #4c4b4b;
+}
+
+/* Strong elements inside profile info for labels */
+.profile-info strong {
+  color: #333;
+}
+
+/* Style for empty profile page (loading state) */
+.profile-page p {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #888;
+}
+
+/* Sidebar styling */
+.studentsidebar-whole {
+  display: flex;
+  flex-direction: row; /* Sidebar and content side by side */
+  min-height: 100vh; /* Ensure the layout stretches fully */
+  background-image: url("../images/homehome.jpeg");
+  background-size: cover;
+}
+
+/* Sidebar style */
+.sidebar {
+  margin-top: 0.8rem;
+  width: 25%; /* Sidebar takes up 25% of the screen width */
+  height: 100vh;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+}
+
+/* Sidebar items */
+.sidebar h2 {
+  color: #d41111;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.nav-item {
+  flex-direction: row;
+  backdrop-filter: blur(1px);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 11px;
+  border-radius: 8px;
+  color: #070707;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.973);
+}
+
+/* Icons */
+.icon {
+  font-size: 18px;
+  color: #ffffff;
+}
+
+/* Avatar styling */
+.avatar-upload {
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.avatar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ccc;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Content section styling for Dashboard */
+.content {
+  flex-grow: 1; /* Takes the remaining space after sidebar */
+  padding: 20px;
+  background-color: #fff;
+  height: 100vh; /* Ensures it takes full height */
+  overflow-y: auto; /* Scroll if content overflows */
+}
+
+/* Responsive styling */
+@media screen and (max-width: 768px) {
+  .studentsidebar-whole {
+      flex-direction: column; /* Stack sidebar and content vertically on smaller screens */
   }
-  
-  /* Title for the profile page */
-  .profile-title {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #333;
-    font-weight: bold;
+
+  .sidebar {
+      width: 100%; /* Sidebar takes full width on mobile */
+      height: auto;
   }
-  
-  /* Profile details container */
-  .profile-details {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  .content {
+      padding: 10px;
   }
-  
-  /* Style for each profile info item */
-  .profile-info {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    color: #555;
+
+  .avatar {
+      width: 120px;
+      height: 120px;
   }
-  
-  /* Strong elements inside profile info for labels */
-  .profile-info strong {
-    color: #333;
-  }
-  
-  /* Style for empty profile page (loading state) */
-  .profile-page p {
-    text-align: center;
-    font-size: 1.5rem;
-    color: #888;
-  }
-  
-  /* Add a responsive design for smaller screens */
-  @media screen and (max-width: 600px) {
-    .profile-title {
-      font-size: 1.5rem;
-    }
-  
-    .profile-details {
-      padding: 15px;
-    }
-  
-    .profile-info {
-      font-size: 1rem;
-    }
-  }
-  
+}

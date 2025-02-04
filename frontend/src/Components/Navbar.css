@@ -181,25 +181,12 @@
         font-size: 1rem; /* Adjust font size for small screens */
     }
 }
-
-.user-profile {
-    font-size: 1.2rem;
-    color: white;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .profile-name {
-    margin-right: 20px;
-  }
-
-
   .user-profile-container {
   position: relative;
   cursor: pointer;
   display: inline-block;
+  padding: 10px 10px;
+  
 }
 
 .dropdown-menu {

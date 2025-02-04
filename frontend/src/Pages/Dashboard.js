@@ -323,12 +323,7 @@
 
 
 import React, { useState, useEffect } from 'react';
-import { Line } from 'react-chartjs-2';
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 import './Dashboard.css';
-
-// Register Chart.js components
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 const Dashboard = () => {
   // Initial state for dashboard metrics
@@ -341,71 +336,41 @@ const Dashboard = () => {
     hoursSpent: 1200,
     upcomingDeadlines: 3,
     activeCourses: 7,
-    coursesEnrolled: [15, 25, 35, 45, 55],  // Graph data
+    coursesEnrolled: [15, 25, 35, 45, 55], // Graph data
     courseLabels: ['January', 'February', 'March', 'April', 'May'], // X-axis labels
   });
 
+  const [activeTab, setActiveTab] = useState('all');
+  const [showPopup, setShowPopup] = useState(false);
+
   // Simulate fetching data from API (this can be replaced with a real API call)
   useEffect(() => {
-    // Mock data simulation (replace with actual API calls)
     const fetchData = () => {
       setDashboardData({
-        totalCourses: 10,
-        totalStudents: 100,
-        completedCourses: 6,
-        studentsCompleted: 80,
-        certificatesEarned: 50,
-        hoursSpent: 1200,
-        upcomingDeadlines: 3,
-        activeCourses: 7,
-        coursesEnrolled: [15, 25, 35, 45, 55],  // Sample course data for graph
-        courseLabels: ['January', 'February', 'March', 'April', 'May'],
+        totalCourses: 0,
+        totalStudents: 0,
+        completedCourses: 0,
+        studentsCompleted: 0,
+        certificatesEarned: 0,
+        hoursSpent: 0,
+        upcomingDeadlines: 0,
+        activeCourses: 0,
       });
     };
-    fetchData();  // Fetch the initial data
+    fetchData(); // Fetch the initial data
   }, []);
 
-  // Data for the Line Chart
-  const graphData = {
-    labels: dashboardData.courseLabels,  // X-axis labels dynamically updated
-    datasets: [
-      {
-        label: 'Courses Enrolled',
-        data: dashboardData.coursesEnrolled,  // Y-axis data dynamically updated
-        fill: false,
-        borderColor: 'rgb(75, 192, 192)',  // Line color
-        tension: 0.1,
-      },
-    ],
-  };
-
-  // Options for the chart
-  const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top',
-      },
-      title: {
-        display: true,
-        text: 'Courses Enrolled Over Time',
-      },
-    },
-    scales: {
-      x: {
-        beginAtZero: true,
-      },
-      y: {
-        beginAtZero: true,
-      },
-    },
+  // Handle tab click and show popup
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+    setShowPopup(true);
   };
 
   return (
     <div className="dashboard-wrapper">
       <h1 className="dashboard-header">Dashboard</h1>
 
-      {/* 8 Containers Section */}
+      {/* Metrics Section */}
       <div className="metrics-wrapper">
         <div className="metric-card">
           <h2>{dashboardData.totalCourses}</h2>
@@ -441,12 +406,42 @@ const Dashboard = () => {
         </div>
       </div>
 
-      {/* Line Graph Section */}
-      <div className="graph-wrapper">
-         <Line data={graphData} options={options} />
+      {/* Navigation Tabs */}
+      <div className="nav-tabs">
+        <button
+          className={`nav-tab ${activeTab === 'all' ? 'active' : ''}`}
+          onClick={() => handleTabClick('all')}
+        >
+          All
+        </button>
+        <button
+          className={`nav-tab ${activeTab === 'published' ? 'active' : ''}`}
+          onClick={() => handleTabClick('published')}
+        >
+          Published
+        </button>
+        <button
+          className={`nav-tab ${activeTab === 'pending' ? 'active' : ''}`}
+          onClick={() => handleTabClick('pending')}
+        >
+          Pending
+        </button>
       </div>
+
+    {/* Divider Line */}
+    <hr className="divider-line" />
+
+      {/* Popup Message */}
+      {showPopup && (
+        <div className="popup-message">
+          No courses available!
+        </div>
+      )}
     </div>
   );
 };
 
 export default Dashboard;
+
+
+

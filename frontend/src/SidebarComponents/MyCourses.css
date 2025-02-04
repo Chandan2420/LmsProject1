@@ -1,0 +1,140 @@
+/* Dashboard.css */
+.mycourses-wrapper {
+    /* background-color: #199fc0; */
+    width: 75%; /* Ensures dashboard takes 75% width */
+    height: 100%;
+    
+      padding: 20px;
+      font-family: Arial, sans-serif;
+    }
+    
+    .mycourses-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .metrics-wrapper {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    
+    .metric-card {
+      background-color: #f4f4f4;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    
+    .metric-card h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    
+    .metric-card p {
+      font-size: 1rem;
+      color: #555;
+    }
+    
+    .graph-wrapper {
+      margin-top: 40px;
+      text-align: center;
+    }
+    
+    .action-buttons {
+      text-align: center;
+      margin-top: 40px;
+    }
+    
+    .action-buttons button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    
+    .action-buttons button:hover {
+      background-color: #45a049;
+    }
+    
+  
+  
+  
+  
+    .nav-tabs {
+      display: flex;
+      justify-content: left;
+      margin-top: 25px;
+      gap: 15px;
+      padding: 15px 0;
+    }
+    
+    .nav-tab {
+      padding: 15px 30px; /* Increase padding for a larger button */
+      border: none;
+      background: #ddd;
+      cursor: pointer;
+      font-size: 18px; /* Increase font size */
+      border-radius: 8px; /* More rounded corners */
+      transition: 0.3s;
+      font-weight: bold;
+    }
+    
+    .nav-tab.active {
+      background: #007bff;
+      color: white;
+    }
+    
+    .nav-tab:hover {
+      background: #0056b3;
+      color: white;
+    }
+    
+  
+    .divider-line {
+      width: 70%;
+      height: 2px;
+      background: rgb(240, 131, 131);
+      border: none;
+      margin: 10px 0; /* Adds spacing above and below the line */
+    }
+
+
+
+    /* Table styling */
+.course-table {
+    width: 70%;
+    border-collapse: collapse;
+    margin-top: 2px;
+  }
+  
+  .course-table th,
+  .course-table td {
+    border: 1px solid #100a0a;
+    padding: 15px 14px;
+    text-align: center;
+  }
+  
+  .course-table th {
+    background-color: #007bff;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .course-table td {
+    font-weight: bold;
+  }
+  
+  .course-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .course-table td {
+    font-size: 14px;
+  }

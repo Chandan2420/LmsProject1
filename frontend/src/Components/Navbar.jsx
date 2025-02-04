@@ -166,8 +166,6 @@ function Navbar() {
                       <p className="dropdown-item" onClick={handleProfileClick}>
                         My Profile
                       </p>
-                      <p className="dropdown-item">Email: {userProfile?.email}</p>
-                      <p className="dropdown-item">Role: {userProfile?.role}</p>
                       <button
                         className="dropdown-item logout-button"
                         onClick={handleLogoutClick}
@@ -177,6 +175,13 @@ function Navbar() {
                     </div>
                   )}
                 </div>
+                 {/* Additional Logout Button */}
+                 <button
+                  className="contact-button"
+                  onClick={handleLogoutClick}
+                >
+                  Logout
+                </button>
               </>
             )}
           </div>
