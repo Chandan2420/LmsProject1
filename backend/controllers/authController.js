@@ -6,19 +6,27 @@ const { sendEmail } = require('../utils/email');
 
 exports.SignUpPage = async (req, res) => {
     try {
-        const { name, mobile, email, password } = req.body;
+        const { name, mobile, email, password, role } = req.body;
+
+        // Validate role (ensure it's either 'student' or 'instructor')
+        if (!["student", "instructor"].includes(role)) {
+            return res.status(400).json({ error: "Invalid role selection" });
+        }
+
+        // Hash password
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        const student = new User({ name, mobile, email, password: hashedPassword, role: 'student' });
-        await student.save();
+        // Create new user with the provided role
+        const user = new User({ name, mobile, email, password: hashedPassword, role });
+        await user.save();
 
-        res.status(201).json({ message: 'Student registered successfully' });
+        res.status(201).json({ message: `${role} registered successfully` });
     } catch (error) {
         if (error.code === 11000) {
             const field = Object.keys(error.keyValue)[0];
             res.status(400).json({ error: `${field} already exists` });
         } else {
-            res.status(500).json({ error: 'Server error' });
+            res.status(500).json({ error: "Server error" });
         }
     }
 };
@@ -33,6 +41,7 @@ exports.LoginPage = async (req, res) => {
         }
 
         const token = jwt.sign({ id: user._id, role: user.role }, 'your_jwt_secret', { expiresIn: '1h' });
+        
         res.json({ message: 'Login successful', token, role: user.role });
     } catch (error) {
         res.status(500).json({ error: 'Server error' });

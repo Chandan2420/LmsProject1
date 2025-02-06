@@ -18,6 +18,7 @@ app.use(cookieParser());
 
 connectDB();
 
+
 // Use the routes
 app.use('/api', authRoutes);
 app.use('/api', instructorRoutes);

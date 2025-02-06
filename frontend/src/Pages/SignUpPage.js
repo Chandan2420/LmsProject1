@@ -12,10 +12,11 @@ const SignUpPage = () => {
     confirmPassword: "",
   });
 
+  const [isInstructor, setIsInstructor] = useState(false);
   const [errors, setErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [serverError, setServerError] = useState("");
-  const navigate = useNavigate('');
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -69,22 +70,22 @@ const SignUpPage = () => {
     if (validateForm()) {
       try {
         const response = await axios.post("http://localhost:5000/api/SignUpPage", {
-          name: formData.fullName, // Match backend key
-          mobile: formData.phonenumber, // Match backend key
+          name: formData.fullName, 
+          mobile: formData.phonenumber, 
           email: formData.email,
           password: formData.password,
-          role: 'student', // Set role explicitly
+          role: isInstructor ? 'instructor' : 'student',
         });
 
         if (response.status === 201) {
           setIsSubmitted(true);
-          setServerError(""); // Clear any previous errors
+          setServerError(""); 
         }
         navigate("/login");
       } catch (error) {
         if (error.response && error.response.data.error) {
           setServerError(error.response.data.error);
-        }else {
+        } else {
           setServerError("Failed to connect to the server. Please try again.");
         }
       }
@@ -168,6 +169,17 @@ const SignUpPage = () => {
               {errors.confirmPassword && (
                 <p className="error-text">{errors.confirmPassword}</p>
               )}
+            </div>
+
+            {/* Become Instructor Checkbox */}
+            <div className="checkbox-container">
+              <input
+                type="checkbox"
+                id="becomeInstructor"
+                checked={isInstructor}
+                onChange={(e) => setIsInstructor(e.target.checked)}
+              />
+              <label htmlFor="becomeInstructor">Become an Instructor</label>
             </div>
 
             <div className="form-group">
