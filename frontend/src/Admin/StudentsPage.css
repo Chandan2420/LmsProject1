@@ -1,0 +1,55 @@
+/* Dashboard.css */
+.studentsmycourse-wrapper {
+    width: 75%; /* Keeps the dashboard width */
+    height: 100%;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.studentsmycourse-header {
+    text-align: left;
+    margin-top: 30px; 
+    margin-bottom: 30px;
+    color: white;
+    
+}
+
+/* Table styling */
+.studentscourse-table {
+    width: 240%; /* Increase the table width */
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.studentscourse-table th,
+.studentscourse-table td {
+    border: 1px solid #100a0a;
+    padding: 20px 18px; /* Increase padding for bigger cells */
+    text-align: center;
+}
+
+.studentscourse-table th {
+    background-color: #007bff;
+    font-weight: bold;
+    color: white;
+}
+
+.studentscourse-table td {
+    font-weight: bold;
+    font-size: 16px; /* Increase text size */
+}
+
+.studentscourse-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.studentscourse-table td {
+    font-size: 16px; /* Increase text size */
+}
+.studentsdivider-line {
+    width: 240%;
+    height: 5px;
+    background: rgb(235, 11, 97);
+    border: none;
+    margin: 10px 0; /* Adds spacing above and below the line */
+  }

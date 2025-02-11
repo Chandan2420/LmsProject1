@@ -1,33 +1,3 @@
-// import React from "react";
-// import "../Components/Navbar.css";
-// import Logo from "../images/Rsc-Img.png";
-// import { useNavigate } from "react-router-dom";
-
-// function Navbar() {
-//   const navigate = useNavigate();
-
-//   const handleLoginClick = () => {
-//     navigate("/add");
-//   };
-
-//   return (
-//     <div className="navbar">
-//       <div className="logo-div">
-//         <img src={Logo} className="logo" alt="Logo" /> {/* Logo */}
-//       </div>
-//       <input
-//         type="text"
-//         placeholder="Search..."
-//         className="search-input"
-//       /> {/* Search input */}
-//       <button className="navadd-button" onClick={handleLoginClick}>
-//         Add Course
-//       </button>
-//     </div>
-//   );
-// }
-
-// export default Navbar;
 import React, { useState, useEffect } from "react";
 import "../Components/Navbar.css";
 import { useNavigate } from "react-router-dom";
@@ -104,7 +74,11 @@ function Navbar() {
   };
 
   const handleProfileClick = () => {
-    navigate("/profile"); // Navigate to profile page
+    if (userProfile?.role === "admin") {
+      navigate("/admin-dashboard"); // Navigate to admin dashboard if user is admin
+    } else {
+      navigate("/profile"); // Navigate to user profile if not admin
+    }
   };
 
   const isLoggedIn = localStorage.getItem("token") !== null;
@@ -192,6 +166,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
-
-

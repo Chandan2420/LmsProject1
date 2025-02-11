@@ -6,7 +6,8 @@ const instructorRoutes = require('./routes/instructorRoutes');
 const fileRoutes = require('./routes/fileRoutes'); // Import fileRoutes
 const profileRoutes = require('./routes/profileRoutes');
 const cookieParser = require("cookie-parser");
-
+const institutes = require('./routes/institutes');
+const adminRoutes = require('./routes/adminRoutes');
 
 
 const app = express();
@@ -24,8 +25,8 @@ app.use('/api', authRoutes);
 app.use('/api', instructorRoutes);
 app.use('/api', fileRoutes); // Add fileRoutes
 app.use('/api', profileRoutes); // Add profileRoutes
-
-
+app.use('/api', institutes);
+app.use('/api', adminRoutes);
 
 
 app.listen(5000, () => console.log('Server running on port 5000'));

@@ -9,7 +9,7 @@ exports.SignUpPage = async (req, res) => {
         const { name, mobile, email, password, role } = req.body;
 
         // Validate role (ensure it's either 'student' or 'instructor')
-        if (!["student", "instructor"].includes(role)) {
+        if (!["student", "instructor","admin"].includes(role)) {
             return res.status(400).json({ error: "Invalid role selection" });
         }
 

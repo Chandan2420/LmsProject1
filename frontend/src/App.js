@@ -35,7 +35,17 @@ import FeaturesSection from "./Pages/FeaturesSection";
 import TeachCourse from "./Pages/TeachCourse";
 // import HeaderTabs from "./Pages/HeaderTabs";
 import CardSection from "./Pages/CardSection";
+import AddInstitute from "./Pages/AddInstitute";
 //import FlipCardComponent from "./Pages/FlipCardComponent";
+
+
+import AdminDashboard from "./Admin/AdminDashboard";
+import Unauthorized from './Admin/Unauthorized';
+import ProtectedAdminRoute from './Admin/ProtectedAdminRoute';
+import InstructorsPage from "./Admin/InstructorsPage";
+import StudentsPage from './Admin/StudentsPage';
+
+
 
 function App() {
   return (
@@ -74,6 +84,17 @@ function App() {
           <Route path="/add-course" element={<CourseForm />} />
           <Route path="/hello" element={<Sidebar />} />
           <Route path="/profile" element={<StudentProfile />} />
+          <Route path="/institutes" element={<AddInstitute/>}/>
+
+
+          <Route path="/students" element={<StudentsPage />} />
+          <Route path="/instructors" element={<InstructorsPage />} />
+          
+
+
+
+          <Route path="/unauthorized" element={<Unauthorized />} />
+          <Route path="/admin-dashboard" element={<ProtectedAdminRoute><AdminDashboard /></ProtectedAdminRoute> } />
 
           <Route
             path="/next"

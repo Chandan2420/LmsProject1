@@ -21,24 +21,27 @@ import { useNavigate } from "react-router-dom";
 function Searchbar() {
   const navigate = useNavigate();
 
+  // Retrieve role and token from localStorage
+  const role = localStorage.getItem("role");
+  const token = localStorage.getItem("token");  // Assuming token indicates login status
+
   const handleAddCourseClick = () => {
     navigate("/add");
   };
 
   return (
     <div className="nav-links">
-      {/* <a href="#home" onClick={handleHomeClick}>Home</a>
-            <a href="#services" onClick={handleCourseClick}>Courses</a>
-            <a href="#about" onClick={handleAboutUsClick}>About Us</a>
-            <a href="#contact">Pages</a>  */}
       <input type="text" placeholder="Search..." className="search-input" />
-      {/* <button className="searchlog-button" onClick={""}>Login</button> */}
-
-      <button className="searchsign-button" onClick={handleAddCourseClick}>
-        Add Courses
-      </button>
+      
+      {/* Show Add Courses button only if logged in and role is instructor */}
+      {token && role === "instructor" && (
+        <button className="searchsign-button" onClick={handleAddCourseClick}>
+          Add Courses
+        </button>
+      )}
     </div>
   );
 }
 
 export default Searchbar;
+

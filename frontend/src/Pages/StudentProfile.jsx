@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Pages/StudentProfile.css"; // Import the external CSS file
 import Dashboard from "../Pages/Dashboard"; // Import the Dashboard component
-import AddCourse from "../SidebarComponents/MyCourses"; // Import the AddCourse component
+//import AddCourse from "../SidebarComponents/MyCourses"; // Import the AddCourse component
 import MyCourses from "../SidebarComponents/MyCourses";
 
 function StudentProfile() {
