@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema({
     resetToken: { type: String },
     resetTokenExpiry: { type: Date },
     avatar: { type: String },
+    instituteCode: { type: String, required: true } // // Associate with an institutecode
 });
 
 module.exports = mongoose.model('User', userSchema);

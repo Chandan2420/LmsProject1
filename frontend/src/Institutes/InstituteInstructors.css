@@ -1,0 +1,148 @@
+/* Add Student Button */
+.add-instructor-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+  
+  .add-instructor-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .add-instructor-btn:focus {
+    outline: none;
+  }
+  
+  /* Modal Overlay */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    text-align: center;
+  }
+  
+  /* Input Fields */
+  .modal-content input {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  /* Submit Button */
+  .submit-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    width: 100%;
+  }
+  
+  .submit-btn:hover {
+    background-color: #218838;
+  }
+  
+  /* Close Button */
+  .close-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .close-btn:hover {
+    background-color: #c82333;
+  }
+  
+
+
+  /* Dashboard.css */
+.instituteinstructormycourse-wrapper {
+    width: 75%; /* Keeps the dashboard width */
+    height: 100%;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .instituteinstructormycourse-header {
+    text-align: left;
+    margin-top: 30px; 
+    margin-bottom: 30px;
+    color: white;
+    
+  }
+  
+  /* Table styling */
+  .instituteinstructorcourse-table {
+    width: 240%; /* Increase the table width */
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .instituteinstructorcourse-table th,
+  .instituteinstructorcourse-table td {
+    border: 1px solid #100a0a;
+    padding: 20px 18px; /* Increase padding for bigger cells */
+    text-align: center;
+  }
+  
+  .instituteinstructorcourse-table th {
+    background-color: #007bff;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .instituteinstructorcourse-table td {
+    font-weight: bold;
+    font-size: 16px; /* Increase text size */
+  }
+  
+  .instituteinstructorcourse-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .instituteinstructorcourse-table td {
+    font-size: 16px; /* Increase text size */
+  }
+  .instituteinstructordivider-line {
+    width: 240%;
+    height: 5px;
+    background: rgb(235, 11, 97);
+    border: none;
+    margin: 10px 0; /* Adds spacing above and below the line */
+    margin-top: 20px;
+  }

@@ -1,39 +1,28 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const instituteSchema = new mongoose.Schema({
-  instituteName: { type: String, required: true },
-  instituteCode: { type: String, required: true, unique: true },
-  instituteType: { type: String },
-  affiliation: { type: String },
-  email: { type: String, required: true, unique: true },
-  phone: { type: String },
-  website: { type: String },
-
-  address: {
-    streetAddress: { type: String },
-    city: { type: String },
-    postalCode: { type: String }
+const InstituteSchema = new mongoose.Schema({
+  instituteName: String,
+  instituteCode: String,
+  instituteType: String,
+  phone: String,
+  website: String,
+  streetAddress: String,
+  city: String,
+  postalCode: String,
+  username: String,
+  email: {
+    type: String,
+    required: true,
+    unique: true
   },
-
-  contactPerson: {
-    name: { type: String, required: true },
-    role: { type: String },
-    email: { type: String, required: true },
-    phone: { type: String }
+  password: String,
+  logo: {
+    type: String, // The path to the uploaded logo image
+    required: true
   },
-
-  account: {
-    username: { type: String, required: true, unique: true },
-    password: { type: String, required: true }
-  },
-
-  additionalInfo: {
-    numberOfStudents: { type: Number },
-    numberOfInstructors: { type: Number },
-    logo: { type: String }
-  },
-
-  termsAccepted: { type: Boolean, required: true }
+  role: { type: String, default: "instituteadmin" },
+  resetToken: { type: String },
+    resetTokenExpiry: { type: Date },
 });
 
-module.exports = mongoose.model('Institute', instituteSchema);
+module.exports = mongoose.model("Institute", InstituteSchema);

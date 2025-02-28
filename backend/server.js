@@ -2,13 +2,13 @@ const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
-const instructorRoutes = require('./routes/instructorRoutes');
 const fileRoutes = require('./routes/fileRoutes'); // Import fileRoutes
 const profileRoutes = require('./routes/profileRoutes');
 const cookieParser = require("cookie-parser");
-const institutes = require('./routes/institutes');
+const AddInstitutes = require('./routes/AddInstitutes');
 const adminRoutes = require('./routes/adminRoutes');
-
+const InstituteRoutes = require('./routes/InstituteRoutes');
+const InstituteProfile = require('./routes/InstituteProfile');
 
 const app = express();
 
@@ -22,11 +22,12 @@ connectDB();
 
 // Use the routes
 app.use('/api', authRoutes);
-app.use('/api', instructorRoutes);
 app.use('/api', fileRoutes); // Add fileRoutes
 app.use('/api', profileRoutes); // Add profileRoutes
-app.use('/api', institutes);
+app.use('/api', AddInstitutes);
 app.use('/api', adminRoutes);
+app.use('/api', InstituteRoutes);
+app.use("/api", InstituteProfile);
 
 
 app.listen(5000, () => console.log('Server running on port 5000'));

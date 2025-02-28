@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './AdminDashboard.css'; // Ensure your CSS handles the layout correctly
 import StudentsPage from './StudentsPage'; // Import the StudentsPage component
 import InstructorsPage from './InstructorsPage'; // Import the InstructorsPage component
+import InstitutesPages from './InstitutesPages'; // Import the InstitutesPages component
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState(null);
@@ -12,6 +13,8 @@ const AdminDashboard = () => {
       setActiveTab("students"); // Set active tab to "students"
     } else if (path === "/instructors") {
       setActiveTab("instructors"); // Set active tab to "instructors"
+    } else if (path === "/institutes") {
+      setActiveTab("institutes"); // Set active tab to "institutes"
     } else {
       setActiveTab(null); // Reset the active tab when navigating elsewhere
       window.location.href = path; // For other navigation
@@ -25,13 +28,13 @@ const AdminDashboard = () => {
           <span className="adminicon">📊</span> Students
         </a>
         <a href="#" className="adminnav-item" onClick={() => handleNavigation("/instructors")}> 
-          <span className="adminicon">📊</span> Instructors
+          <span className="adminicon">📚</span> Instructors
         </a>
-        <a href="#" className="adminnav-item" onClick={() => handleNavigation("/Institutes1")}> 
-          <span className="adminicon">📊</span> Institute
+        <a href="#" className="adminnav-item" onClick={() => handleNavigation("/institutes")}> 
+          <span className="adminicon">📖</span> Institute
         </a>
         <a href="#" className="adminnav-item" onClick={() => handleNavigation("/logout")}> 
-          <span className="adminicon">📊</span> Logout
+          <span className="adminicon">🔒</span> Logout
         </a>
       </div>
 
@@ -39,6 +42,7 @@ const AdminDashboard = () => {
       <div className="student-panel">
         {activeTab === "students" && <StudentsPage />} {/* Render StudentsPage when "students" tab is active */}
         {activeTab === "instructors" && <InstructorsPage />} {/* Render InstructorsPage when "instructors" tab is active */}
+        {activeTab === "institutes" && <InstitutesPages />} {/* Render InstructorsPage when "instructors" tab is active */}
       </div>
     </div>
   );

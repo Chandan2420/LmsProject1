@@ -13,6 +13,7 @@ const authenticateToken = (req, res, next) => {
     jwt.verify(token, "your_jwt_secret", (err, decoded) => {
         if (err) return res.status(403).json({ message: "Invalid token" });
         req.user = decoded;
+        req.institute = decoded;
         next();
     });
 };

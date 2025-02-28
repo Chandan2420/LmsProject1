@@ -83,6 +83,7 @@ function Navbar() {
 
   const isLoggedIn = localStorage.getItem("token") !== null;
 
+  
   return (
     <nav className="navbar">
       <div className="navbar-container">
