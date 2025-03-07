@@ -57,7 +57,7 @@ function Navbar() {
   };
 
   const handleLogoutClick = () => {
-    localStorage.removeItem("token");
+    localStorage.clear(); // This will remove all items from localStorage
     navigate("/login");
   };
 

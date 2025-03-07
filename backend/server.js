@@ -9,6 +9,7 @@ const AddInstitutes = require('./routes/AddInstitutes');
 const adminRoutes = require('./routes/adminRoutes');
 const InstituteRoutes = require('./routes/InstituteRoutes');
 const InstituteProfile = require('./routes/InstituteProfile');
+const InstructorProfile = require('./routes/InstructorProfile');
 
 const app = express();
 
@@ -28,6 +29,7 @@ app.use('/api', AddInstitutes);
 app.use('/api', adminRoutes);
 app.use('/api', InstituteRoutes);
 app.use("/api", InstituteProfile);
+app.use("/api", InstructorProfile);
 
 
 app.listen(5000, () => console.log('Server running on port 5000'));

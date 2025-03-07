@@ -11,33 +11,43 @@ const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
       const response = await axios.post('http://localhost:5000/api/LoginPage', { email, password });
       alert(response.data.message);
-      
+  
       // Store token and role in local storage
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('role', response.data.role);
-
-      // Decode the token
+  
+      // Decode token
       const decodedToken = jwtDecode(response.data.token);
-      //console.log('Decoded Token:', decodedToken); // Debugging: Check if `_id` is inside
 
-      // Store `_id` (instituteId) in local storage
-      if (decodedToken.instituteId) {
-        localStorage.setItem('instituteId', decodedToken.instituteId); // ✅ Store instituteId
-        navigate(`/institute-dashboard/${decodedToken.instituteId}`); // ✅ Redirect to unique institute dashboard
-      } else if (decodedToken.role.toLowerCase() === 'admin') {
+      // Store user id in localStorage
+    localStorage.setItem('userId', decodedToken.id); // ✅ Store userId in localStorage
+  
+      if (decodedToken.role.toLowerCase() === 'admin') {
         navigate("/admin-dashboard");
-      } else {
-        alert("Institute ID not found in token");
-        navigate("/#home");
+      } 
+      else if (decodedToken.role.toLowerCase() === 'instituteadmin') {
+        if (decodedToken.instituteId) {
+          localStorage.setItem('instituteId', decodedToken.instituteId);
+          navigate(`/institute-dashboard/${decodedToken.instituteId}`);
+        } else {
+          alert("Institute ID not found in token");
+        }
+      } 
+      else if (decodedToken.role.toLowerCase() === 'student' || decodedToken.role.toLowerCase() === 'instructor') {
+        navigate("/#home"); // ✅ Both student and instructor navigate to home
+      } 
+      else {
+        alert("Invalid role");
       }
     } catch (error) {
       alert(error.response?.data?.error || "Login failed");
     }
   };
+  
 
   return (
     <div className="login-wholecontainer">

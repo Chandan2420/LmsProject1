@@ -21,12 +21,15 @@ import { useNavigate } from "react-router-dom";
 function Searchbar() {
   const navigate = useNavigate();
 
-  // Retrieve role and token from localStorage
+  // Retrieve role, token, and user ID from localStorage
   const role = localStorage.getItem("role");
-  const token = localStorage.getItem("token");  // Assuming token indicates login status
+  const token = localStorage.getItem("token");
+  const userId = localStorage.getItem("userId"); // Use userId from localStorage
 
   const handleAddCourseClick = () => {
-    navigate("/add");
+    if (userId) {
+      navigate(`/instructor-dashboard/${userId}`);
+    }
   };
 
   return (

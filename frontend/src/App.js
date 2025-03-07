@@ -46,6 +46,15 @@ import InstructorsPage from "./Admin/InstructorsPage";
 import StudentsPage from './Admin/StudentsPage';
 
 import InstituteDashboard from "./Institutes/InstituteDashboard";
+import InstructorDashboard from "./Instructors/InstructorsDashboard";
+
+import EditCourse from "./Instructors/EditCourses";
+
+
+
+
+
+
 
 function App() {
   return (
@@ -95,6 +104,15 @@ function App() {
 
           <Route path="/unauthorized" element={<Unauthorized />} />
           <Route path="/admin-dashboard" element={<ProtectedAdminRoute><AdminDashboard /></ProtectedAdminRoute> } />
+
+
+          <Route path="/instructor-dashboard/:userId" element={<InstructorDashboard />} />
+          <Route path="/editcourse/:title" element={<EditCourse />} />
+          
+
+
+
+
 
           <Route
             path="/next"
