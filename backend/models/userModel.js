@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-    name: { type: String, required: true, unique: true },
+    name: { type: String, required: true },
     mobile: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
     resetToken: { type: String },
     resetTokenExpiry: { type: Date },
     avatar: { type: String },
-    instituteCode: { type: String, required: true } // // Associate with an institutecode
+    instituteCode: { type: String } // // Associate with an institutecode
 });
 
 module.exports = mongoose.model('User', userSchema);

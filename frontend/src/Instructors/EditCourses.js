@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import './EditCourses.css';
 
 const EditCourse = () => {
   const { title } = useParams();
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -11,11 +14,22 @@ const EditCourse = () => {
     tags: [],
     image: null,
   });
-  const [categories, setCategories] = useState(['Web Development', 'Data Science', 'Design', 'Marketing']);
-  const [tags, setTags] = useState(['Beginner', 'Intermediate', 'Advanced', 'Free', 'Paid']);
+
+  const [categories, setCategories] = useState([
+    'Web Development',
+    'Data Science',
+    'Design',
+    'Marketing',
+  ]);
+  const [tags, setTags] = useState([
+    'Beginner',
+    'Intermediate',
+    'Advanced',
+    'Free',
+    'Paid',
+  ]);
   const [newCategory, setNewCategory] = useState('');
   const [newTag, setNewTag] = useState('');
-  const navigate = useNavigate();
 
   useEffect(() => {
     fetchCourse();
@@ -80,7 +94,10 @@ const EditCourse = () => {
     }
 
     try {
-      await axios.put(`http://localhost:5001/api/updatecourse/${title}`, formDataToSend);
+      await axios.put(
+        `http://localhost:5001/api/updatecourse/${title}`,
+        formDataToSend
+      );
       alert('Course updated successfully');
       navigate('/');
     } catch (error) {
@@ -89,14 +106,37 @@ const EditCourse = () => {
     }
   };
 
+  // Navigate to the curriculum page
+  const goToCurriculum = () => {
+    navigate(`/editcourse/${title}/curriculum`);
+  };
+
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="title" value={formData.title} onChange={handleChange} placeholder="Course Title" />
-      <textarea name="description" value={formData.description} onChange={handleChange} placeholder="Course Description" />
+    <form className="edit-course-form" onSubmit={handleSubmit}>
+      <h2>Edit Course</h2>
+      
+      {/* Curriculum Button */}
+      <button type="button" className="curriculum-btn" onClick={goToCurriculum}>
+        Curriculum
+      </button>
+
+      <input
+        type="text"
+        name="title"
+        value={formData.title}
+        onChange={handleChange}
+        placeholder="Course Title"
+      />
+      <textarea
+        name="description"
+        value={formData.description}
+        onChange={handleChange}
+        placeholder="Course Description"
+      />
 
       <h4>Course Categories</h4>
       {categories.map((category) => (
-        <label key={category}>
+        <label key={category} className="checkbox-label">
           <input
             type="checkbox"
             name="categories"
@@ -107,17 +147,21 @@ const EditCourse = () => {
           {category}
         </label>
       ))}
-      <input
-        type="text"
-        value={newCategory}
-        onChange={(e) => setNewCategory(e.target.value)}
-        placeholder="Add New Category"
-      />
-      <button type="button" onClick={addCategory}>Add Category</button>
+      <div className="add-edit-field">
+        <input
+          type="text"
+          value={newCategory}
+          onChange={(e) => setNewCategory(e.target.value)}
+          placeholder="Add New Category"
+        />
+        <button type="button" onClick={addCategory}>
+          Add
+        </button>
+      </div>
 
       <h4>Course Tags</h4>
       {tags.map((tag) => (
-        <label key={tag}>
+        <label key={tag} className="checkbox-label">
           <input
             type="checkbox"
             name="tags"
@@ -128,16 +172,22 @@ const EditCourse = () => {
           {tag}
         </label>
       ))}
-      <input
-        type="text"
-        value={newTag}
-        onChange={(e) => setNewTag(e.target.value)}
-        placeholder="Add New Tag"
-      />
-      <button type="button" onClick={addTag}>Add Tag</button>
+      <div className="add-edit-field">
+        <input
+          type="text"
+          value={newTag}
+          onChange={(e) => setNewTag(e.target.value)}
+          placeholder="Add New Tag"
+        />
+        <button type="button" onClick={addTag}>
+          Add
+        </button>
+      </div>
 
       <input type="file" name="image" onChange={handleChange} />
-      <button type="submit">Save Changes</button>
+      <button type="submit" className="edit-save-btn">
+        Save Changes
+      </button>
     </form>
   );
 };

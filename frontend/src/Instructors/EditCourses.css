@@ -1,0 +1,68 @@
+.edit-course-form {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .edit-course-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .edit-course-form input,
+  .edit-course-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .checkbox-label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .add-edit-field {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .add-edit-field input {
+    flex: 1;
+  }
+  
+  .add-edit-field button {
+    padding: 10px 20px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-edit-field button:hover {
+    background: #0056b3;
+  }
+  
+  .edit-save-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #28a745;
+    color: white;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .edit-save-btn:hover {
+    background: #218838;
+  }
+  

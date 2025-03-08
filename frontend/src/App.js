@@ -49,6 +49,7 @@ import InstituteDashboard from "./Institutes/InstituteDashboard";
 import InstructorDashboard from "./Instructors/InstructorsDashboard";
 
 import EditCourse from "./Instructors/EditCourses";
+import EditCurriculum from "./Instructors/EditCurriculum";
 
 
 
@@ -108,6 +109,7 @@ function App() {
 
           <Route path="/instructor-dashboard/:userId" element={<InstructorDashboard />} />
           <Route path="/editcourse/:title" element={<EditCourse />} />
+          <Route path="/editcourse/:title/curriculum" element={<EditCurriculum />} />
           
 
 
