@@ -66,3 +66,17 @@
     background: #218838;
   }
   
+  .editcourse-curriculum-btn:hover{
+    background: #007bff;
+  }
+  .editcourse-curriculum-btn{
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #28a745;
+    color: white;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }

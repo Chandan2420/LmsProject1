@@ -99,14 +99,15 @@ router.delete('/deletecourse', async (req, res) => {
 // Configure file storage
 const storage1 = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'uploadsModule/'); // Ensure 'uploads' folder exists
+    cb(null, 'uploadsModule/'); // Ensure this folder exists
   },
   filename: (req, file, cb) => {
     cb(null, `${Date.now()}-${file.originalname}`);
   }
 });
 
-const upload1 = multer({ storage1 });
+// Fix here: use `storage: storage1` instead of `{ storage1 }`
+const upload1 = multer({ storage: storage1 });
 
 // Create curriculum (POST request)
 router.post('/createCurriculum', upload1.array('fileDocs', 50), async (req, res) => {

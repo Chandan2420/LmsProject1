@@ -116,7 +116,7 @@ const EditCourse = () => {
       <h2>Edit Course</h2>
       
       {/* Curriculum Button */}
-      <button type="button" className="curriculum-btn" onClick={goToCurriculum}>
+      <button type="button" className="editcourse-curriculum-btn" onClick={goToCurriculum}>
         Curriculum
       </button>
 
