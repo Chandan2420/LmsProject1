@@ -18,7 +18,7 @@ const upload = multer({ storage });
 // Add a New Course (with Instructor ID)
 router.post('/addcourselms', upload.single('image'), async (req, res) => {
   try {
-    const { title, description, categories, tags, userId } = req.body;
+    const { title, description, categories, tags, userId, instructorName } = req.body;
     const image = req.file ? req.file.filename : null;
 
     if (!userId) {
@@ -31,7 +31,8 @@ router.post('/addcourselms', upload.single('image'), async (req, res) => {
       categories: categories ? JSON.parse(categories) : [],
       tags: tags ? JSON.parse(tags) : [],
       image,
-      userId, // Associate with instructor
+      userId,
+      instructorName, // Associate with instructor
     });
 
     await newCourse.save();

@@ -20,14 +20,15 @@ const InstructorDashboard = () => {
   return (
     <div className="instructorsidebar-whole">
       <div className="instructorsidebar">
+        {instructorData && <h2>Welcome, {instructorData.name}!</h2>}
         <a href="#" className="instructornav-item" onClick={() => setActiveTab("addcourseslms")}> 
-          <span className="instructoricon">👨‍🎓</span> AddCourses
+          <span className="instructoricon">👨‍🎓</span> Add Courses
         </a>
         <a href="#" className="instructornav-item" onClick={() => setActiveTab("courseslms")}> 
           <span className="instructoricon">📘</span> Courses
         </a>
-        <a href="#" className="instructornav-item" onClick={() => setActiveTab("courseslession")}> 
-          <span className="instructoricon">📘</span> Lession
+        <a href="#" className="instructornav-item" onClick={() => setActiveTab("courseslessons")}> 
+          <span className="instructoricon">📘</span> Lessons
         </a>
         <a href="#" className="instructornav-item" onClick={() => window.location.href = "/logout"}> 
           <span className="instructoricon">🔒</span> Logout
@@ -35,7 +36,9 @@ const InstructorDashboard = () => {
       </div>
 
       <div className="instructor-panel">
-        {activeTab === "addcourseslms" && <AddCourseslms userId={userId} />}
+      {activeTab === "addcourseslms" && instructorData && (
+  <AddCourseslms userId={userId} instructorName={instructorData.name} />
+)}
         {activeTab === "courseslms" && <Courseslms userId={userId} />}
         {activeTab === "courseslessons" && <CoursesLession userId={userId} />}
       </div>

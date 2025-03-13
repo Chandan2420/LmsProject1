@@ -18,8 +18,8 @@ const courseSchema = new mongoose.Schema({
   tags: { type: [String], required: true },
   image: { type: String, required: true },
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }, // Instructor Reference
+  instructorName: { type: String, required: true },
   units: [unitSchema], // Array of units
-  instructorName: String, // Add instructor name field
 });
 
 module.exports = mongoose.model('Course', courseSchema);

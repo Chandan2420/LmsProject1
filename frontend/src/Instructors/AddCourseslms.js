@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import "./AddCourseslms.css";
 
-const AddCoursesLms = ({ userId }) => {
+const AddCoursesLms = ({ userId, instructorName }) => {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -71,6 +71,7 @@ const AddCoursesLms = ({ userId }) => {
 
     const formDataToSend = new FormData();
     formDataToSend.append("userId", userId); // Associate course with instructor
+    formDataToSend.append("instructorName", instructorName); // Include instructor name
     formDataToSend.append("title", formData.title);
     formDataToSend.append("description", formData.description);
     formDataToSend.append("categories", JSON.stringify(formData.categories));
@@ -101,6 +102,7 @@ const AddCoursesLms = ({ userId }) => {
   return (
     <div className="add-courselms-container">
       <h2>Add New Course</h2>
+      <p><strong>Instructor:</strong> {instructorName}</p> {/* Display instructor name */}
       {error && <p className="error-message">{error}</p>}
       <form onSubmit={handleSubmit}>
         <input
