@@ -4,7 +4,7 @@ import axios from 'axios';
 import './EditCourses.css';
 
 const EditCourse = () => {
-  const { title } = useParams();
+  const { id } = useParams(); // Get course ID from URL params
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -37,8 +37,8 @@ const EditCourse = () => {
 
   const fetchCourse = async () => {
     try {
-      const response = await axios.get('http://localhost:5001/api/getcourses');
-      const course = response.data.find((c) => c.title === title);
+      const response = await axios.get(`http://localhost:5001/api/getcourse/${id}`);
+      const course = response.data;
       if (course) {
         setFormData({
           title: course.title,
@@ -94,10 +94,7 @@ const EditCourse = () => {
     }
 
     try {
-      await axios.put(
-        `http://localhost:5001/api/updatecourse/${title}`,
-        formDataToSend
-      );
+      await axios.put(`http://localhost:5001/api/updatecourse/${id}`, formDataToSend);
       alert('Course updated successfully');
       navigate('/');
     } catch (error) {
@@ -108,13 +105,13 @@ const EditCourse = () => {
 
   // Navigate to the curriculum page
   const goToCurriculum = () => {
-    navigate(`/editcourse/${title}/curriculum`);
+    navigate(`/editcourse/${id}/curriculum`);
   };
 
   return (
     <form className="edit-course-form" onSubmit={handleSubmit}>
       <h2>Edit Course</h2>
-      
+
       {/* Curriculum Button */}
       <button type="button" className="editcourse-curriculum-btn" onClick={goToCurriculum}>
         Curriculum

@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import "./AddCourseslms.css";
 
-const AddCoursesLms = () => {
+const AddCoursesLms = ({ userId }) => {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -27,6 +27,8 @@ const AddCoursesLms = () => {
     "Paid",
   ]);
 
+  const [error, setError] = useState("");
+
   const handleChange = (e) => {
     const { name, value, type, checked, files } = e.target;
 
@@ -45,14 +47,14 @@ const AddCoursesLms = () => {
   };
 
   const handleAddCategory = () => {
-    if (formData.newCategory.trim() !== "") {
+    if (formData.newCategory.trim() !== "" && !categories.includes(formData.newCategory)) {
       setCategories((prev) => [...prev, formData.newCategory]);
       setFormData({ ...formData, newCategory: "" });
     }
   };
 
   const handleAddTag = () => {
-    if (formData.newTag.trim() !== "") {
+    if (formData.newTag.trim() !== "" && !tags.includes(formData.newTag)) {
       setTags((prev) => [...prev, formData.newTag]);
       setFormData({ ...formData, newTag: "" });
     }
@@ -60,7 +62,15 @@ const AddCoursesLms = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
+
+    if (!formData.title || !formData.description || !formData.image) {
+      setError("Please fill in all required fields.");
+      return;
+    }
+
     const formDataToSend = new FormData();
+    formDataToSend.append("userId", userId); // Associate course with instructor
     formDataToSend.append("title", formData.title);
     formDataToSend.append("description", formData.description);
     formDataToSend.append("categories", JSON.stringify(formData.categories));
@@ -70,6 +80,7 @@ const AddCoursesLms = () => {
     try {
       await axios.post("http://localhost:5001/api/addcourselms", formDataToSend);
       alert("Course added successfully!");
+
       setFormData({
         title: "",
         description: "",
@@ -79,15 +90,18 @@ const AddCoursesLms = () => {
         newCategory: "",
         newTag: "",
       });
+
+      document.querySelector('input[type="file"]').value = ""; // Reset file input
     } catch (error) {
-      console.error(error);
-      alert("Failed to add course");
+      console.error("Error adding course:", error);
+      setError("Failed to add course. Please try again.");
     }
   };
 
   return (
     <div className="add-courselms-container">
       <h2>Add New Course</h2>
+      {error && <p className="error-message">{error}</p>}
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -95,6 +109,7 @@ const AddCoursesLms = () => {
           placeholder="Course Title"
           value={formData.title}
           onChange={handleChange}
+          required
         />
 
         <textarea
@@ -102,6 +117,7 @@ const AddCoursesLms = () => {
           placeholder="Course Description"
           value={formData.description}
           onChange={handleChange}
+          required
         />
 
         <h4>Course Categories</h4>
@@ -164,7 +180,7 @@ const AddCoursesLms = () => {
           </button>
         </div>
 
-        <input type="file" name="image" onChange={handleChange} />
+        <input type="file" name="image" accept="image/*" onChange={handleChange} required />
 
         <button type="submit" className="submit-courselms-btn">
           Add Course

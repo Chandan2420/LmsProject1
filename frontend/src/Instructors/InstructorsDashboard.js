@@ -4,14 +4,14 @@ import axios from 'axios';
 import './InstructorsDashboard.css';
 import Courseslms from './Courseslms';
 import AddCourseslms from './AddCourseslms';
+import CoursesLession from './CoursesLession';
 
 const InstructorDashboard = () => {
-  const { userId } = useParams(); // Get `userId` from the URL
+  const { userId } = useParams(); // Get `userId` from URL
   const [instructorData, setInstructorData] = useState(null);
   const [activeTab, setActiveTab] = useState("addcourses");
 
   useEffect(() => {
-    // Fetch the instructor data using `userId`
     axios.get(`http://localhost:5000/api/InstructorProfile/${userId}`)
       .then((response) => setInstructorData(response.data))
       .catch((error) => console.error("Error fetching instructor data:", error));
@@ -26,14 +26,18 @@ const InstructorDashboard = () => {
         <a href="#" className="instructornav-item" onClick={() => setActiveTab("courseslms")}> 
           <span className="instructoricon">📘</span> Courses
         </a>
+        <a href="#" className="instructornav-item" onClick={() => setActiveTab("courseslession")}> 
+          <span className="instructoricon">📘</span> Lession
+        </a>
         <a href="#" className="instructornav-item" onClick={() => window.location.href = "/logout"}> 
           <span className="instructoricon">🔒</span> Logout
         </a>
       </div>
 
       <div className="instructor-panel">
-        {activeTab === "addcourseslms" && <AddCourseslms />}
-        {activeTab === "courseslms" && <Courseslms />}
+        {activeTab === "addcourseslms" && <AddCourseslms userId={userId} />}
+        {activeTab === "courseslms" && <Courseslms userId={userId} />}
+        {activeTab === "courseslessons" && <CoursesLession userId={userId} />}
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ const router = express.Router();
 const Course = require('../models/courseModel');
 const multer = require('multer');
 
+// Multer Storage Configuration
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, 'uploadsImage/');
@@ -12,22 +13,25 @@ const storage = multer.diskStorage({
   },
 });
 
-const upload = multer({ storage: storage });
+const upload = multer({ storage });
 
+// Add a New Course (with Instructor ID)
 router.post('/addcourselms', upload.single('image'), async (req, res) => {
   try {
-    const { title, description, categories, tags } = req.body;
+    const { title, description, categories, tags, userId } = req.body;
     const image = req.file ? req.file.filename : null;
 
-    const parsedCategories = JSON.parse(categories);
-    const parsedTags = JSON.parse(tags);
+    if (!userId) {
+      return res.status(400).json({ message: 'Instructor ID is required' });
+    }
 
     const newCourse = new Course({
       title,
       description,
-      categories: parsedCategories,
-      tags: parsedTags,
+      categories: categories ? JSON.parse(categories) : [],
+      tags: tags ? JSON.parse(tags) : [],
       image,
+      userId, // Associate with instructor
     });
 
     await newCourse.save();
@@ -38,13 +42,12 @@ router.post('/addcourselms', upload.single('image'), async (req, res) => {
   }
 });
 
-module.exports = router;
-
-
-
-router.get('/getcourses', async (req, res) => {
+// Get Courses by Instructor
+router.get('/getcourses/:userId', async (req, res) => {
   try {
-    const courses = await Course.find();
+    const { userId } = req.params;
+    const courses = await Course.find({ userId });
+
     res.status(200).json(courses);
   } catch (error) {
     console.error(error);
@@ -52,49 +55,56 @@ router.get('/getcourses', async (req, res) => {
   }
 });
 
-//Update Course
-router.put('/updatecourse/:title', upload.single('image'), async (req, res) => {
+// Update Course by _id
+router.put('/updatecourse/:id', upload.single('image'), async (req, res) => {
   try {
     const { title, description, categories, tags } = req.body;
-    const updatedCourse = {};
+    const updateData = {
+      ...(title && { title }),
+      ...(description && { description }),
+      ...(categories && { categories: JSON.parse(categories) }),
+      ...(tags && { tags: JSON.parse(tags) }),
+      ...(req.file && { image: req.file.filename }),
+    };
 
-    if (title) updatedCourse.title = title;
-    if (description) updatedCourse.description = description;
-    if (categories) updatedCourse.categories = JSON.parse(categories);
-    if (tags) updatedCourse.tags = JSON.parse(tags);
-    if (req.file) updatedCourse.image = req.file.filename;
+    const course = await Course.findByIdAndUpdate(req.params.id, updateData, { new: true });
 
-    const course = await Course.findOneAndUpdate(
-      { title: req.params.title },
-      updatedCourse,
-      { new: true }
-    );
+    if (!course) return res.status(404).json({ message: 'Course not found' });
 
     res.json(course);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
+  } catch (error) {
+    res.status(500).json({ message: 'Failed to update course' });
   }
 });
 
 
-// Delete Course
-router.delete('/deletecourse', async (req, res) => {
-  const { title } = req.body;
-
+// Delete Course by _id
+router.delete('/deletecourse/:id', async (req, res) => {
   try {
-    const course = await Course.findOneAndDelete({ title });
+    const course = await Course.findByIdAndDelete(req.params.id);
+
     if (!course) {
       return res.status(404).json({ message: 'Course not found' });
     }
 
+    // Delete associated image file
+    if (course.image) {
+      const imagePath = path.join(__dirname, '..', 'uploadsImage', course.image);
+      if (fs.existsSync(imagePath)) {
+        fs.unlinkSync(imagePath);
+      }
+    }
+
     res.json({ message: 'Course deleted successfully' });
   } catch (error) {
+    console.error(error);
     res.status(500).json({ message: 'Failed to delete course' });
   }
 });
 
 
 
+module.exports = router;
 
 // Configure file storage
 const storage1 = multer.diskStorage({
@@ -111,10 +121,10 @@ const upload1 = multer({ storage: storage1 });
 
 // Create curriculum (POST request)
 router.post('/createCurriculum', upload1.array('fileDocs', 50), async (req, res) => {
-  const { title, units } = req.body;
+  const { id, units } = req.body; // Use id instead of courseId
 
   try {
-    let course = await Course.findOne({ title });
+    let course = await Course.findById(id); // Find course by ID
 
     if (!course) {
       return res.status(404).json({ message: 'Course not found' });
@@ -126,8 +136,7 @@ router.post('/createCurriculum', upload1.array('fileDocs', 50), async (req, res)
 
     parsedUnits.forEach((unit) => {
       unit.lessons.forEach((lesson) => {
-        // Use provided video URL
-        lesson.videoUrl = lesson.videoUrl || '';
+        lesson.videoUrl = lesson.videoUrl || ''; // Keep video URL if provided
 
         // Store document file URL if uploaded
         if (fileIndex < fileDocs.length) {
@@ -148,3 +157,16 @@ router.post('/createCurriculum', upload1.array('fileDocs', 50), async (req, res)
 });
 
 
+
+
+
+router.get('/getcourse/:id', async (req, res) => {
+  try {
+    const course = await Course.findById(req.params.id);
+    if (!course) return res.status(404).json({ message: 'Course not found' });
+
+    res.json(course);
+  } catch (error) {
+    res.status(500).json({ message: 'Failed to fetch course' });
+  }
+});

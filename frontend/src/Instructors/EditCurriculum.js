@@ -4,7 +4,7 @@ import axios from 'axios';
 import "./EditCurriculum.css";
 
 const EditCurriculum = () => {
-  const { title } = useParams();
+  const { id } = useParams(); // Get id directly
   const navigate = useNavigate();
   const [units, setUnits] = useState([]);
   const [fileDocs, setFileDocs] = useState({});
@@ -15,7 +15,7 @@ const EditCurriculum = () => {
 
   const fetchCourse = async () => {
     try {
-      const response = await axios.get(`http://localhost:5001/api/getcourse/${title}`);
+      const response = await axios.get(`http://localhost:5001/api/getcourse/${id}`);
       if (response.data.units) {
         setUnits(response.data.units);
       }
@@ -65,7 +65,7 @@ const EditCurriculum = () => {
 
   const saveCurriculum = async () => {
     const formData = new FormData();
-    formData.append('title', title);
+    formData.append('id', id); // Use id instead of courseId
     formData.append('units', JSON.stringify(units));
 
     Object.keys(fileDocs).forEach((key) => {
@@ -77,7 +77,7 @@ const EditCurriculum = () => {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       alert('Curriculum created successfully');
-      navigate(`/editcourse/${title}`);
+      navigate(`/editcourse/${id}`);
     } catch (error) {
       console.error('Failed to create curriculum:', error);
       alert('Failed to create curriculum');
@@ -86,7 +86,7 @@ const EditCurriculum = () => {
 
   return (
     <div className="edit-curriculum-container">
-      <h2 className="curriculum-title">Edit Curriculum for {title}</h2>
+      <h2 className="curriculum-title">Edit Curriculum</h2>
       <button className="add-unit-btn" onClick={addUnit}>Add Unit</button>
       {units.map((unit, unitIndex) => (
         <div key={unitIndex} className="unit-card">

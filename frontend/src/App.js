@@ -50,6 +50,7 @@ import InstructorDashboard from "./Instructors/InstructorsDashboard";
 
 import EditCourse from "./Instructors/EditCourses";
 import EditCurriculum from "./Instructors/EditCurriculum";
+import CoursesLession from "./Instructors/CoursesLession";
 
 
 
@@ -108,8 +109,9 @@ function App() {
 
 
           <Route path="/instructor-dashboard/:userId" element={<InstructorDashboard />} />
-          <Route path="/editcourse/:title" element={<EditCourse />} />
-          <Route path="/editcourse/:title/curriculum" element={<EditCurriculum />} />
+          <Route path="/editcourse/:id" element={<EditCourse />} />
+          <Route path="/editcourse/:id/curriculum" element={<EditCurriculum />} />
+          <Route path="/courseslession" element={<CoursesLession />} />
           
 
 
